@@ -17,6 +17,6 @@ export const ARTICLES: Article[] = [
         description: "Also a great article!",
         key: 'the-second-article',
         date: new Date(),
-        imageUrl: 'http://angular.io/assets/images/logos/angular/angular-soldBlack.png'
+        imageUrl: 'http://angular.io/assets/images/logos/angular/angular_solidBlack.png'
     }
 ];
