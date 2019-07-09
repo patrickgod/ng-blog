@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { Article } from "../article";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ArticleService } from "../article.service";
+import { Title } from "@angular/platform-browser";
+import { SharedService } from "../shared.service";
 
 @Component({
   selector: "app-article",
@@ -14,7 +16,9 @@ export class ArticleComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private articleService: ArticleService,
-    private router: Router
+    private router: Router,
+    private titleService: Title,
+    private sharedService: SharedService
   ) {}
 
   ngOnInit() {
@@ -22,11 +26,13 @@ export class ArticleComponent implements OnInit {
       const key = params.key;
       this.articleService.getArticle(key).subscribe(article => {
         if (article === undefined) {
-          this.router.navigateByUrl('404');
+          this.router.navigateByUrl("404");
           return;
         }
         this.article = article;
-        console.log(this.article);
+        this.titleService.setTitle(
+          `${this.article.title} - ${this.sharedService.blogTitle}`
+        );
       });
     });
   }
