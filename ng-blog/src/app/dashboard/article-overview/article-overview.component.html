@@ -1,3 +1,25 @@
-<p>
-  article-overview works!
-</p>
+<div class="overview">
+  <div class="overview-head">
+    <div class="overview-cell"></div>
+    <div class="overview-cell">Title</div>
+    <div class="overview-cell">Date</div>
+    <div class="overview-cell">Views</div>
+    <div class="overview-cell">Online</div>
+  </div>
+  <div class="overview-row" *ngFor="let article of articles">
+    <div class="overview-cell">
+      <img [src]="article.imageUrl" class="overview-image" />
+    </div>
+    <div class="overview-cell">
+      <a routerLink="../{{ article.key }}">{{ article.title }}</a>
+    </div>
+    <div class="overview-cell">{{ article.date | date }}</div>
+    <div class="overview-cell center">{{ article.viewCount }}</div>
+    <div class="overview-cell center">
+      <span
+        class="dot"
+        [ngClass]="{ online: article.published, offline: !article.published }"
+      ></span>
+    </div>
+  </div>
+</div>
