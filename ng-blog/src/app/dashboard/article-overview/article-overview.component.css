@@ -50,3 +50,7 @@ a {
 .offline {
     background-color: red;
 }
+
+.publish-icon {
+    cursor: pointer;
+}

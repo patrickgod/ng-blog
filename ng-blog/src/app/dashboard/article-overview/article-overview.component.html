@@ -16,8 +16,8 @@
     <div class="overview-cell">{{ article.date | date }}</div>
     <div class="overview-cell center">{{ article.viewCount }}</div>
     <div class="overview-cell center">
-      <span
-        class="dot"
+      <span (click)="togglePublishState(article)"
+        class="dot publish-icon"
         [ngClass]="{ online: article.published, offline: !article.published }"
       ></span>
     </div>
