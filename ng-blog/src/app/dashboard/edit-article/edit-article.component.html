@@ -1,3 +1,30 @@
-<p>
-  edit-article works!
-</p>
+<div class="wrapper" *ngIf="article">
+  <div class="property">
+    <label>Title:</label>
+    <input type="text" [(ngModel)]="article.title" />
+  </div>
+  <div class="property">
+    <label>Key:</label>
+    <input type="text" [(ngModel)]="article.key" />
+  </div>
+  <div class="property">
+    <label>Date:</label>
+    <input type="text" [(ngModel)]="article.date" />
+  </div>
+  <div class="property">
+    <label>ImageUrl</label>
+    <input type="text" [(ngModel)]="article.imageUrl" />
+  </div>
+  <div class="property">
+    <label>Description:</label>
+    <textarea
+      type="text"
+      [(ngModel)]="article.description"
+      class="description"
+    ></textarea>
+  </div>
+  <div class="property">
+    <label>Content:</label>
+    <textarea type="text" [(ngModel)]="article.content"></textarea>
+  </div>
+</div>

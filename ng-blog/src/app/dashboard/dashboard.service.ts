@@ -20,4 +20,10 @@ export class DashboardService {
       article
     );
   }
+
+  getArticle(key: string): Observable<Article> {
+    return this.http.get<Article>(
+      environment.apiUrl + "/dashboard/article/" + key
+    );
+  }
 }

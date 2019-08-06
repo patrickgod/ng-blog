@@ -5,10 +5,12 @@ import { AboutComponent } from './about/about.component';
 import { ArticleComponent } from './article/article.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { EditArticleComponent } from './dashboard/edit-article/edit-article.component';
 
 const routes: Routes = [
   { path: 'articles', component: ArticleListComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'dashboard/:key', component: EditArticleComponent },
   { path: 'about', component: AboutComponent },
   { path: '404', component: NotFoundComponent },
   { path: '', component: ArticleListComponent },
