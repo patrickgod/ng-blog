@@ -10,6 +10,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 })
 export class EditArticleComponent implements OnInit {
   article: Article = null;
+  saved = false;
 
   constructor(
     private dashboardService: DashboardService,
@@ -31,6 +32,14 @@ export class EditArticleComponent implements OnInit {
         return;
       }
       this.article = article;
+    });
+  }
+
+  updateArticle(): void {
+    this.saved = false;
+    this.dashboardService.updateArticle(this.article).subscribe(result => {
+      this.article = result;
+      this.saved = true;
     });
   }
 }

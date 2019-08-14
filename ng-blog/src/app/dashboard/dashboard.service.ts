@@ -26,4 +26,11 @@ export class DashboardService {
       environment.apiUrl + "/dashboard/article/" + key
     );
   }
+
+  updateArticle(article: Article): Observable<Article> {
+    return this.http.put<Article>(
+      environment.apiUrl + "/dashboard/article",
+      article
+    );
+  }
 }

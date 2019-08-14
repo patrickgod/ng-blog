@@ -27,4 +27,10 @@
     <label>Content:</label>
     <textarea type="text" [(ngModel)]="article.content"></textarea>
   </div>
+  <div>
+    <button (click)="updateArticle()">Update</button>
+    <div *ngIf="saved" style="color: green">
+      Saved. <a routerLink="../../{{ article.key }}">View article.</a>
+    </div>
+  </div>
 </div>

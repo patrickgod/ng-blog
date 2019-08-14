@@ -1,11 +1,15 @@
 body {
-    margin: 0 auto;
-    max-width: 800px;
-    font-family: Arial, Helvetica, sans-serif;
+  margin: 0 auto;
+  max-width: 800px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .meta-info {
-    color: grey;
-    margin-top: -28px;
-    font-size: 14px;
+  color: grey;
+  margin-top: -28px;
+  font-size: 14px;
+}
+
+a {
+  color: gray;
 }
