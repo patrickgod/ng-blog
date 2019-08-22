@@ -42,4 +42,8 @@ export class EditArticleComponent implements OnInit {
       this.saved = true;
     });
   }
+
+  viewPreview(): void {
+    this.router.navigateByUrl("/dashboard/preview/" + this.article.key);
+  }
 }

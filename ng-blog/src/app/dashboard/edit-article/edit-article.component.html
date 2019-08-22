@@ -28,6 +28,7 @@
     <textarea type="text" [(ngModel)]="article.content"></textarea>
   </div>
   <div>
+    <button (click)="viewPreview()" style="margin-right: 10px">Preview</button>
     <button (click)="updateArticle()">Update</button>
     <div *ngIf="saved" style="color: green">
       Saved. <a routerLink="../../{{ article.key }}">View article.</a>
