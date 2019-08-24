@@ -33,4 +33,10 @@ export class DashboardService {
       article
     );
   }
+
+  deleteArticle(id: number): Observable<any> {
+    return this.http.delete<any>(
+      environment.apiUrl + "/dashboard/article/" + id
+    );
+  }
 }

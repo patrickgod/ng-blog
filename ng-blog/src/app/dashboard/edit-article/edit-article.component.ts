@@ -46,4 +46,20 @@ export class EditArticleComponent implements OnInit {
   viewPreview(): void {
     this.router.navigateByUrl("/dashboard/preview/" + this.article.key);
   }
+
+  deleteArticle(): void {
+    this.saved = false;
+
+    const deletionConfirmed = confirm(
+      `Deleting '${this.article.title}'. Are you sure?`
+    );
+    if (deletionConfirmed) {
+      this.dashboardService.deleteArticle(this.article.id).subscribe(
+        () => {
+          this.router.navigateByUrl("dashboard");
+        },
+        error => alert(error.error.message)
+      );
+    }
+  }
 }
