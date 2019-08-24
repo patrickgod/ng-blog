@@ -32,13 +32,3 @@ textarea {
 .description {
     height: 100px;
 }
-
-button {
-    background-color: #f7f8fa;
-    border: 1px solid rgba(0,0,0, 0.125);
-    border-radius: 6px;
-    padding: 6px;
-    margin: 10px 0;
-    font-weight: 600;
-    cursor: pointer;
-}
