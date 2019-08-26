@@ -79,4 +79,10 @@ export class EditArticleComponent implements OnInit {
       this.isNew = false;
     });
   }
+
+  updateKey(): void {
+    this.article.key = this.article.title
+      .toLowerCase()
+      .replace(new RegExp(" ", "g"), "-");
+  }
 }

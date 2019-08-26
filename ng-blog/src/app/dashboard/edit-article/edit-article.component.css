@@ -32,3 +32,8 @@ textarea {
 .description {
     height: 100px;
 }
+
+.character-count {
+    font-size: 14px;
+    margin-top: -6px;
+}

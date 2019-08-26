@@ -1,11 +1,16 @@
 <div class="wrapper" *ngIf="article">
   <div class="property">
     <label>Title:</label>
-    <input type="text" [(ngModel)]="article.title" />
+    <input
+      type="text"
+      [(ngModel)]="article.title"
+      (keyup)="updateKey()"
+      (blur)="updateKey()"
+    />
   </div>
   <div class="property">
     <label>Key:</label>
-    <input type="text" [(ngModel)]="article.key" />
+    <input type="text" [(ngModel)]="article.key" disabled="disabled" />
   </div>
   <div class="property">
     <label>Date:</label>
@@ -22,10 +27,18 @@
       [(ngModel)]="article.description"
       class="description"
     ></textarea>
+    <div class="character-count">
+      Characters: {{ article.description.length }}
+    </div>
   </div>
   <div class="property">
     <label>Content:</label>
     <textarea type="text" [(ngModel)]="article.content"></textarea>
+  </div>
+  <div class="character-count">
+    Article is
+    <span style="color: green;" *ngIf="article.published">online</span>
+    <span style="color: red;" *ngIf="!article.published">offline</span>.
   </div>
   <div>
     <button
