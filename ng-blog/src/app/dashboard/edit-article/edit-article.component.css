@@ -8,16 +8,6 @@
     margin-top: 10px;
 }
 
-input {
-    font-size: 21px;
-    padding: 5px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    margin: 2px;
-    text-indent: 2px;
-    width: 100%;
-}
-
 textarea {
     margin: 0px;
     width: 100%;
