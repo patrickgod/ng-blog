@@ -10,24 +10,8 @@ import { environment } from "src/environments/environment";
 export class DashboardService {
   constructor(private http: HttpClient) {}
 
-  getHeaders(): HttpHeaders {
-    let token: string;
-    if (typeof localStorage !== "undefined") {
-      token = localStorage.token;
-    }
-
-    const headers: HttpHeaders = new HttpHeaders({
-      Authorization: token
-    });
-
-    return headers;
-  }
-
   getArticles(): Observable<Article[]> {
-    return this.http.get<Article[]>(
-      environment.apiUrl + "/dashboard/overview",
-      { headers: this.getHeaders() }
-    );
+    return this.http.get<Article[]>(environment.apiUrl + "/dashboard/overview");
   }
 
   togglePublishState(article: Article): Observable<Article> {
