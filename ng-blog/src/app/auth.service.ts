@@ -15,4 +15,15 @@ export class AuthService {
       password
     });
   }
+
+  auth(): Observable<boolean> {
+    let token: string;
+    if (typeof localStorage !== "undefined") {
+      token = localStorage.token ? localStorage.token : "";
+    }
+
+    return this.http.post<boolean>(environment.apiUrl + "/user/auth", {
+      token
+    });
+  }
 }
