@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Article } from "../article";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
@@ -10,8 +10,24 @@ import { environment } from "src/environments/environment";
 export class DashboardService {
   constructor(private http: HttpClient) {}
 
+  getHeaders(): HttpHeaders {
+    let token: string;
+    if (typeof localStorage !== "undefined") {
+      token = localStorage.token;
+    }
+
+    const headers: HttpHeaders = new HttpHeaders({
+      Authorization: token
+    });
+
+    return headers;
+  }
+
   getArticles(): Observable<Article[]> {
-    return this.http.get<Article[]>(environment.apiUrl + "/dashboard/overview");
+    return this.http.get<Article[]>(
+      environment.apiUrl + "/dashboard/overview",
+      { headers: this.getHeaders() }
+    );
   }
 
   togglePublishState(article: Article): Observable<Article> {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthService } from "../auth.service";
 import { User } from "../user";
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-login",
@@ -11,7 +12,7 @@ export class LoginComponent implements OnInit {
   user: User = new User();
   errorMessage = "";
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {}
 
@@ -20,7 +21,11 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(this.user.name, this.user.password).subscribe(
       result => {
-        console.log(result);
+        if (typeof localStorage !== "undefined") {
+          localStorage.setItem("token", result.token);
+        }
+
+        this.router.navigate(["/dashboard"]);
       },
       error => {
         this.errorMessage = "Username or password is wrong.";
