@@ -14,6 +14,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { ArticleOverviewComponent } from "./dashboard/article-overview/article-overview.component";
 import { EditArticleComponent } from "./dashboard/edit-article/edit-article.component";
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { EditArticleComponent } from "./dashboard/edit-article/edit-article.comp
     NotFoundComponent,
     DashboardComponent,
     ArticleOverviewComponent,
-    EditArticleComponent
+    EditArticleComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: "serverApp" }),
