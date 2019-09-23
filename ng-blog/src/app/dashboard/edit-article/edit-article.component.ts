@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Article } from "src/app/article";
+import { Article } from "../../article";
 import { DashboardService } from "../dashboard.service";
 import { Router, ActivatedRoute } from "@angular/router";
 
