@@ -6,17 +6,14 @@ import {
   HttpHeaders
 } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { Injectable } from "@angular/core";
 
+@Injectable()
 export class Interceptor implements HttpInterceptor {
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    req = req.clone({ headers: this.getHeaders() });
-    return next.handle(req);
-  }
-
-  getHeaders(): HttpHeaders {
     let token: string;
     if (typeof localStorage !== "undefined") {
       token = localStorage.token ? localStorage.token : "";
@@ -26,6 +23,10 @@ export class Interceptor implements HttpInterceptor {
       Authorization: token
     });
 
-    return headers;
+    if (token) {
+      req = req.clone({ headers });
+    }
+
+    return next.handle(req);
   }
 }
